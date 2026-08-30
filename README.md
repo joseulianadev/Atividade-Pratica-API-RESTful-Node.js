@@ -10,6 +10,16 @@ e o DELETE.
 Os produtos ficam guardados em memória, num array dentro do arquivo `server.js`. Não tem banco de
 dados, então toda vez que a API reinicia os dados voltam a ser os 12 produtos iniciais.
 
+## Entrega
+
+- **API publicada:** https://api-produtos-f4vn.onrender.com
+- **Plano de testes:** arquivo `API-Produtos.postman_collection.json`, na raiz deste repositório
+- **Código-fonte:** https://github.com/joseulianadev/Atividade-Pratica-API-RESTful-Node.js
+
+Para conferir rapidamente: abrir https://api-produtos-f4vn.onrender.com/produtos no navegador e
+importar a collection no Postman. A variável `baseUrl` já vem preenchida com a URL acima, então
+não é preciso configurar nada antes de rodar os testes.
+
 ## Rotas
 
 - `GET /produtos` lista todos os produtos
