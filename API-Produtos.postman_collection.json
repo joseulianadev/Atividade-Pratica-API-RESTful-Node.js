@@ -405,7 +405,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "https://minha-api-produtos.onrender.com",
+      "value": "https://api-produtos-f4vn.onrender.com",
       "type": "string"
     },
     {

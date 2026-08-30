@@ -49,7 +49,7 @@ gerado pela API.
 
 ## API publicada
 
-COLOCAR_A_URL_DO_RENDER_AQUI
+https://api-produtos-f4vn.onrender.com
 
 Para testar, é só abrir a URL acima com /produtos no final.
 
