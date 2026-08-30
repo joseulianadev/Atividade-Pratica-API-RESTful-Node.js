@@ -77,6 +77,11 @@ As requisições precisam ser executadas na ordem, porque a de número 04 guarda
 que foi criado numa variável chamada novoProdutoId, e as requisições 05, 06, 07, 09 e 10 usam
 esse id. Dá para rodar tudo de uma vez pelo Collection Runner.
 
+A requisição 02 também usa uma variável (`produtoExistenteId`) em vez de um id fixo: a
+requisição 01 guarda nela o id do primeiro produto da lista. Assim o teste continua passando
+mesmo que algum produto tenha sido excluído antes, já que os dados ficam em memória e não
+voltam ao estado inicial enquanto o serviço não reinicia.
+
 Os testes são estes:
 
 1. Consultar todos os produtos (espera 200)

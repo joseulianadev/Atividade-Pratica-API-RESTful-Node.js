@@ -21,7 +21,13 @@
               "pm.test(\"Resposta deve ser um array\", function () {",
               "    const dados = pm.response.json();",
               "    pm.expect(dados).to.be.an(\"array\");",
-              "});"
+              "});",
+              "",
+              "// Guarda o id do primeiro produto para a requisicao 02.",
+              "const dados = pm.response.json();",
+              "if (dados.length > 0) {",
+              "    pm.collectionVariables.set(\"produtoExistenteId\", dados[0].id);",
+              "}"
             ]
           }
         }
@@ -69,13 +75,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{baseUrl}}/produtos/1",
+          "raw": "{{baseUrl}}/produtos/{{produtoExistenteId}}",
           "host": [
             "{{baseUrl}}"
           ],
           "path": [
             "produtos",
-            "1"
+            "{{produtoExistenteId}}"
           ]
         }
       },
@@ -406,6 +412,11 @@
     {
       "key": "baseUrl",
       "value": "https://api-produtos-f4vn.onrender.com",
+      "type": "string"
+    },
+    {
+      "key": "produtoExistenteId",
+      "value": "1",
       "type": "string"
     },
     {
