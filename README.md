@@ -42,6 +42,10 @@ gerado pela API.
   que o enunciado do trabalho pede.
 - A porta agora é `process.env.PORT || 3000` em vez de fixa em 3000, porque o Render define a
   porta por variável de ambiente e a aplicação não sobe se ficar presa na 3000.
+- O `app.listen` agora recebe `0.0.0.0` como segundo parâmetro. Sem isso o Node escutava só em
+  IPv6 dentro do container e o roteador do Render não conseguia alcançar a aplicação de forma
+  confiável: cerca de 2 em cada 3 requisições voltavam 404. Com o bind explícito, 30 de 30
+  requisições respondem 200.
 - Adicionei o `app.use(express.json())`, senão o `req.body` do POST e do PUT vem vazio.
 - No package.json deixei só o express nas dependências (o da aula tinha knex, pg, bcryptjs e
   jsonwebtoken sobrando de outros exercícios) e coloquei o script `start`, que é o comando que o
