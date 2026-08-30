@@ -112,12 +112,18 @@ app.get('/produtos/:id', (req, res) => {
 })
 
 app.post('/produtos', (req, res) => {
+    const dados = req.body || {}
+
+    if (!dados.descricao || !dados.categoria || dados.preco == null || dados.estoque == null) {
+        return res.status(400).json ({erro: 'Dados do produto incompletos'})
+    }
+
     const produto = {
         "id": proximoId,
-        "descricao": req.body.descricao,
-        "categoria": req.body.categoria,
-        "preco": req.body.preco,
-        "estoque": req.body.estoque
+        "descricao": dados.descricao,
+        "categoria": dados.categoria,
+        "preco": dados.preco,
+        "estoque": dados.estoque
     }
 
     proximoId++
@@ -129,12 +135,18 @@ app.post('/produtos', (req, res) => {
 app.put('/produtos/:id', (req, res) => {
     const id = parseInt (req.params.id)
 
+    const dados = req.body || {}
+
+    if (!dados.descricao || !dados.categoria || dados.preco == null || dados.estoque == null) {
+        return res.status(400).json ({erro: 'Dados do produto incompletos'})
+    }
+
     const index = produtos.findIndex (prod => prod.id === id)
     if (index >= 0) {
-        produtos[index].descricao = req.body.descricao
-        produtos[index].categoria = req.body.categoria
-        produtos[index].preco = req.body.preco
-        produtos[index].estoque = req.body.estoque
+        produtos[index].descricao = dados.descricao
+        produtos[index].categoria = dados.categoria
+        produtos[index].preco = dados.preco
+        produtos[index].estoque = dados.estoque
 
         res.json(produtos[index])
     } else {

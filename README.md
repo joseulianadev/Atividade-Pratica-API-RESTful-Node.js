@@ -31,6 +31,9 @@ não é preciso configurar nada antes de rodar os testes.
 Os status que a API devolve: 200 nas consultas e na alteração, 201 quando cadastra,
 204 quando exclui e 404 quando o id informado não existe.
 
+No POST e no PUT, se faltar algum dos quatro campos no corpo da requisição, a API devolve 400
+em vez de cadastrar ou alterar com dados incompletos.
+
 Exemplo de produto:
 
 ```json
