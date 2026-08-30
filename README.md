@@ -3,8 +3,12 @@
 Trabalho da disciplina de DIAW. É uma API REST feita com Node.js e Express que permite
 consultar, cadastrar, alterar e excluir produtos.
 
-Os produtos ficam guardados em memória, num array dentro do arquivo `index.js`. Não usei
-banco de dados, então toda vez que a API reinicia os dados voltam a ser os 5 produtos iniciais.
+Parti do projeto lab-express que a gente fez em aula (https://github.com/rommelcarneiro/lab-express),
+que já tinha o servidor, a lista de produtos e os dois GETs prontos, e completei com o POST, o PUT
+e o DELETE.
+
+Os produtos ficam guardados em memória, num array dentro do arquivo `server.js`. Não tem banco de
+dados, então toda vez que a API reinicia os dados voltam a ser os 12 produtos iniciais.
 
 ## Rotas
 
@@ -22,15 +26,26 @@ Exemplo de produto:
 ```json
 {
   "id": 1,
-  "descricao": "Teclado Mecânico",
-  "preco": 249.9,
-  "categoria": "Periféricos",
-  "estoque": 15
+  "descricao": "Notebook Dell Inspiron 15",
+  "categoria": "Informática",
+  "preco": 3499.90,
+  "estoque": 12
 }
 ```
 
 No POST e no PUT o corpo da requisição é esse mesmo objeto, só que sem o id. No POST o id é
 gerado pela API.
+
+## Mudanças em relação ao código da aula
+
+- O atributo dos produtos que na aula se chamava `nome` virou `descricao`, porque é esse o nome
+  que o enunciado do trabalho pede.
+- A porta agora é `process.env.PORT || 3000` em vez de fixa em 3000, porque o Render define a
+  porta por variável de ambiente e a aplicação não sobe se ficar presa na 3000.
+- Adicionei o `app.use(express.json())`, senão o `req.body` do POST e do PUT vem vazio.
+- No package.json deixei só o express nas dependências (o da aula tinha knex, pg, bcryptjs e
+  jsonwebtoken sobrando de outros exercícios) e coloquei o script `start`, que é o comando que o
+  Render usa para subir a aplicação.
 
 ## API publicada
 
