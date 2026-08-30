@@ -70,8 +70,9 @@ A API sobe em http://localhost:3000
 
 O arquivo `API-Produtos.postman_collection.json` é a collection com os 10 testes.
 
-Para usar: importar o arquivo no Postman, abrir a coleção, ir na aba Variables e colocar a URL
-do Render na variável baseUrl (sem a barra no final), e salvar.
+Para usar: importar o arquivo no Postman e rodar. A variável `baseUrl` já vem preenchida com a
+URL da API publicada, então não é preciso configurar nada. Ela fica na aba Variables da coleção,
+caso queira apontar os testes para outro endereço (por exemplo http://localhost:3000).
 
 As requisições precisam ser executadas na ordem, porque a de número 04 guarda o id do produto
 que foi criado numa variável chamada novoProdutoId, e as requisições 05, 06, 07, 09 e 10 usam
